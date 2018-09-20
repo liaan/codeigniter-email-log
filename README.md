@@ -4,7 +4,7 @@ Extend the Log class so that all errrors/warning etc is also emailed after writt
 
 Copy MY_Log.php to application/core and rename if needed to your subclass_prefix
 
-### WARNING .. Makes the site slow if debug loggine enabled with email as each message is sent individually
+### WARNING .. Makes the site slow if debug logging is enabled as each message is sent individually
 
 In config.php file of your CI_ENV add:
 ```
