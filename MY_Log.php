@@ -4,17 +4,16 @@ if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
 /**
- * Vpx Security
+ * Vpx Kog
  *
- * Extends core Security Class
+ * Extends core Log Class
  *
- * @author      Karman de Lange
- * @copyright   MIT
- * @version     1.0
- * 
+ * @author      Liaan vd Merwe <info@vpx.co.za>
+ * @copyright   Copyright (c) 2015, Vpx Solutions
+ * @version     1.0 
  *
  */
-class Vpx_log extends CI_Log {
+class MY_log extends CI_Log {
 
     function __construct()
     {
@@ -96,28 +95,30 @@ class Vpx_log extends CI_Log {
             chmod($filepath, $this->_file_permissions);
         }
 
-        
-        ##Email mesasge as well, will slow down server if lots of debugging is happening so make sure to enable emails only on production
-        $config = & get_config();
-
-        if (isset($config['log_email']) and $config['log_email'])
+        if (function_exists('mail'))
         {
-            if (!isset($config['log_email_to_address']))
+            ##Email mesasge as well, will slow down server if lots of debugging is happening so make sure to enable emails only on production
+            $config = & get_config();
+
+            if (isset($config['log_email']) and $config['log_email'])
             {
-                show_error('To email not set for email logs');
+                if (!isset($config['log_email_to_address']))
+                {
+                    show_error('To email not set for email logs');
+                }
+                if (!isset($config['log_email_from_address']))
+                {
+                    show_error('From email not set for email logs');
+                }
+                if (!isset($config['log_email_subject']))
+                {
+                    show_error('Email subject not set');
+                }
+                $headers = 'From: ' . $config['log_email_from_name'] . ' <' . $config['log_email_from_address'] . ">\r\n";
+
+                //$mail = new PHPMailer(true);
+                mail($config['log_email_to_address'], "Codeigniter Error", $msg, $headers);
             }
-            if (!isset($config['log_email_from_address']))
-            {
-                show_error('From email not set for email logs');
-            }
-            if (!isset($config['log_email_subject']))
-            {
-                show_error('Email subject not set');
-            }
-            $headers = 'From: '.$config['log_email_from_name'].' <'.$config['log_email_from_address'].">\r\n";            
-             
-            mail($config['log_email_to_address'], "Codeigniter Error", $msg,$headers);
-            
         }
 
 
