@@ -9,7 +9,7 @@ if (!defined('BASEPATH'))
  * Extends core Log Class
  *
  * @author      Liaan vd Merwe <info@vpx.co.za>
- * @copyright   Copyright (c) 2015, Vpx Solutions
+ 
  * @version     1.0 
  *
  */
