@@ -8,7 +8,7 @@ if (!defined('BASEPATH'))
  *
  * Extends core Security Class
  *
- * @author      Liaan vd Merwe <info@vpx.co.za>
+ * @author      Karman de Lange
  * @copyright   MIT
  * @version     1.0
  * 
