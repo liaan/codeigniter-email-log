@@ -4,12 +4,11 @@ if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
 /**
- * Vpx Kog
+ * Vpx Log
  *
  * Extends core Log Class
  *
- * @author      Liaan vd Merwe <info@vpx.co.za>
- 
+ * @author      Liaan vd Merwe <info@vpx.co.za> 
  * @version     1.0 
  *
  */
