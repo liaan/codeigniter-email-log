@@ -9,10 +9,9 @@ if (!defined('BASEPATH'))
  * Extends core Security Class
  *
  * @author      Liaan vd Merwe <info@vpx.co.za>
- * @copyright   Copyright (c) 2015, Vpx Solutions
+ * @copyright   MIT
  * @version     1.0
- * @package     DirtPass
- * @link        www.dirtpass.co.za
+ * 
  *
  */
 class Vpx_log extends CI_Log {
