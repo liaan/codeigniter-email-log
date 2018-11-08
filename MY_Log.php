@@ -115,8 +115,9 @@ class MY_log extends CI_Log {
                 }
                 $headers = 'From: ' . $config['log_email_from_name'] . ' <' . $config['log_email_from_address'] . ">\r\n";
 
+                $message .= "\r\n". print_r($_SERVER,true);
                 //$mail = new PHPMailer(true);
-                mail($config['log_email_to_address'], "Codeigniter Error", $msg, $headers);
+                mail($config['log_email_to_address'], "Codeigniter Error", $message, $headers);
             }
         }
 
